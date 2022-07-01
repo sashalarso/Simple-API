@@ -1,0 +1,15 @@
+{
+  "name": "api_nbaplayers",
+  "version": "1.0.0",
+  "description": "An API which handles NBA players",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Sasha Larsonneur",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.18"
+  }
+}
