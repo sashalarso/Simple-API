@@ -1,8 +1,14 @@
-let players=require('C:/Users/Sasha/Documents/API node/API_NBAplayers/db/players')
+const {NBAplayer} =require('../db/sequelize')
 
 module.exports=(app)=>{
-    app.get('/players/', (req,res) => {
-       res.json(players) 
+    app.get('/players', (req,res) => {
+        NBAplayer.findAll({order : ['name']}).then(
+            player=> {
+                const message = 'Voici la liste des joueurs'
+                return res.json({message, data : player})
+            }
+        )
+       
     })
 }
        
