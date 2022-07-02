@@ -11,16 +11,30 @@ module.exports = (sequelize, DataTypes) => {
       },
       position: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        get() {
+          return this.getDataValue("position").toUpperCase()
+        }
       },
       rings: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate : {
+          isInt : { msg : 'Utilisez uniquement des nombres entiers'},
+          min : {
+            args : [0],
+            msg : 'The number of rings must be positive'
+
+          }
+        }
       },
       teams: {
         type: DataTypes.STRING,
-        allowNull: false
-      },
+        allowNull: false,
+        get() {
+          return this.getDataValue("teams").split(',')
+        }
+      }
       
     }, {
       timestamps: true,
