@@ -14,6 +14,11 @@ sequelize.initDb()
 
 require('./endpoints/findplayers')(app)
 require('./endpoints/findplayersbyid')(app)
+require('./endpoints/createplayers')(app)
+require('./endpoints/updateplayers')(app)
+require('./endpoints/deleteplayers')(app)
+
+
 
 
 
